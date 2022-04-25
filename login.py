@@ -92,11 +92,6 @@ class Login(QWidget):
         user_name = 'zAKPC936JP'
         password = 'UloEGPhfyS'
 
-        server = 'localhost'
-        database_name = 'test'
-        user_name = 'root'
-        password = 'password'
-
         self.database = QSqlDatabase.addDatabase("QMYSQL")
         self.database.setHostName(server)
         self.database.setDatabaseName(database_name)
