@@ -1,14 +1,15 @@
 import sys
 
 import bcrypt
-from PyQt5.QtCore import Qt, QSize, pyqtSignal, pyqtSlot
-from PyQt5.QtGui import QPalette, QColor
-from PyQt5.QtWidgets import QApplication, QMainWindow, QVBoxLayout, QWidget, QLineEdit, QPushButton, QLabel
+from PyQt5.QtCore import pyqtSignal, pyqtSlot
+from PyQt5.QtWidgets import QApplication, QMainWindow, QLabel
 from PyQt5.QtSql import QSqlDatabase, QSqlQuery
 
 import hmac
 import hashlib
 import base64
+
+from Login import Ui_MainWindow
 
 
 class MainWindow(QMainWindow):
@@ -34,57 +35,14 @@ def check_password(password, hash_password):
     return bcrypt.checkpw(h, encode_string(hash_password))
 
 
-class Login(QWidget):
+class Login(QMainWindow, Ui_MainWindow):
     send_role = pyqtSignal(str)
 
     def __init__(self):
         super().__init__()
-        self.init_widgets()
-        self.set_styles()
+        self.setupUi(self)
         self.connect()
-
-    def init_widgets(self):
-        self.resize(300, 300)
-        self.title = QLabel("Login")
-        self.title.setAlignment(Qt.AlignCenter)
-        self.username = QLineEdit()
-        self.username.setPlaceholderText("User")
-        self.password = QLineEdit()
-        self.password.setEchoMode(QLineEdit.Password)
-        self.password.setPlaceholderText("Password")
-        self.send = QPushButton("Enviar")
-        self.send.clicked.connect(self.login)
-        self.recover = QLabel("Recuperar contraseña")
-        self.info = QLabel()
-        main_v_box = QVBoxLayout()
-        main_v_box.setAlignment(Qt.AlignHCenter)
-        main_v_box.setSpacing(15)
-        main_v_box.addWidget(self.title)
-        main_v_box.addWidget(self.username)
-        main_v_box.addWidget(self.password)
-        main_v_box.addWidget(self.send)
-        main_v_box.addWidget(self.recover)
-        main_v_box.addWidget(self.info)
-        self.setLayout(main_v_box)
-
-    def set_styles(self):
-        self.setStyleSheet("background-color: rgb(26, 26, 26)")
-
-        self.title.setStyleSheet("color: rgb(220, 216, 206); font-size: 36px; text-align: center")
-
-        input_style = "background-color: rgb(45, 45, 45); color: rgb(140, 140, 140); border: none; font-size: 18px"
-        self.username.setStyleSheet(input_style)
-        self.password.setStyleSheet(input_style)
-        self.username.setMaximumWidth(250)
-        self.password.setMaximumWidth(250)
-
-        self.send.setStyleSheet("background-color: rgb(31, 189, 200); color: rgb(220, 216, 206); font-size: 18px")
-        self.send.setMaximumWidth(250)
-
-        self.recover.setStyleSheet("color: rgb(31, 189, 200); font-size: 18px")
-
-        self.info.setStyleSheet("color: rgb(255, 0, 0); font-size: 18px")
-
+        self.login_button.clicked.connect(self.login)
 
     def login(self):
         username = self.username.text()
@@ -137,15 +95,6 @@ class Login(QWidget):
             print('Success')
         else:
             print(self.database.lastError().text())
-
-    def connectSQLlite(self):
-        database = QSqlDatabase.addDatabase("QSQLITE")
-        database.setDatabaseName("test.sql")
-        ok = database.open()
-        if ok:
-            print('Success')
-        else:
-            print(database.lastError().text())
 
 
 app = QApplication(sys.argv)
