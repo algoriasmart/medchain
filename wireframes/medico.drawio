@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-05-02T11:58:19.778Z" agent="5.0 (X11)" etag="Ddm3Vh1532DdegFo8LDe" version="17.5.0" type="github">
+<mxfile host="app.diagrams.net" modified="2022-05-02T12:03:12.772Z" agent="5.0 (X11)" etag="ktU-XPxh62gEy4spm4zH" version="17.5.0" type="github">
   <diagram id="T2zNyDhyfhEta7jth-NB" name="Page-1">
     <mxGraphModel dx="1350" dy="793" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
       <root>
@@ -19,11 +19,35 @@
         <mxCell id="uVW6rR8O0Uw4w95UFV8_-16" value="Programar test" style="labelPosition=center;verticalLabelPosition=middle;align=center;html=1;shape=mxgraph.basic.button;dx=10;" parent="1" vertex="1">
           <mxGeometry x="650" y="350" width="130" height="50" as="geometry" />
         </mxCell>
+        <mxCell id="ElKUEzwXR1N5ssVvkXIz-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="uVW6rR8O0Uw4w95UFV8_-17" target="ElKUEzwXR1N5ssVvkXIz-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <mxCell id="uVW6rR8O0Uw4w95UFV8_-17" value="Programar test" style="labelPosition=center;verticalLabelPosition=middle;align=center;html=1;shape=mxgraph.basic.button;dx=10;" parent="1" vertex="1">
           <mxGeometry x="650" y="400" width="130" height="50" as="geometry" />
         </mxCell>
         <mxCell id="5gWp_a704HSa0MHdzhK0-1" value="Menu icon" style="labelPosition=center;verticalLabelPosition=middle;align=center;html=1;shape=mxgraph.basic.button;dx=10;" parent="1" vertex="1">
           <mxGeometry x="120" y="80" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ElKUEzwXR1N5ssVvkXIz-1" value="Estas seguro que quieres programar un test de la marcha para &quot;Nombre paciente&quot;" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.containers.rrect;rSize=0;strokeColor=#666666;fontColor=#666666;fontSize=17;verticalAlign=top;whiteSpace=wrap;fillColor=#ffffff;spacingTop=32;" vertex="1" parent="1">
+          <mxGeometry x="660" y="490" width="250" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="ElKUEzwXR1N5ssVvkXIz-2" value="Programar test" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.containers.rrect;rSize=0;fontSize=17;fontColor=#666666;strokeColor=#666666;align=left;spacingLeft=8;fillColor=none;resizeWidth=1;" vertex="1" parent="ElKUEzwXR1N5ssVvkXIz-1">
+          <mxGeometry width="250" height="30" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ElKUEzwXR1N5ssVvkXIz-3" value="" style="shape=ellipse;strokeColor=#008cff;resizable=0;fillColor=none;html=1;" vertex="1" parent="ElKUEzwXR1N5ssVvkXIz-2">
+          <mxGeometry x="1" y="0.5" width="20" height="20" relative="1" as="geometry">
+            <mxPoint x="-25" y="-10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ElKUEzwXR1N5ssVvkXIz-4" value="No" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.containers.rrect;rSize=0;fontSize=16;fontColor=#666666;strokeColor=#c4c4c4;whiteSpace=wrap;fillColor=none;" vertex="1" parent="ElKUEzwXR1N5ssVvkXIz-1">
+          <mxGeometry x="0.25" y="1" width="90" height="25" relative="1" as="geometry">
+            <mxPoint x="-45" y="-33" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ElKUEzwXR1N5ssVvkXIz-5" value="Si" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.containers.rrect;rSize=0;fontSize=16;fontColor=#666666;strokeColor=#c4c4c4;whiteSpace=wrap;fillColor=none;" vertex="1" parent="ElKUEzwXR1N5ssVvkXIz-1">
+          <mxGeometry x="0.75" y="1" width="90" height="25" relative="1" as="geometry">
+            <mxPoint x="-45" y="-33" as="offset" />
+          </mxGeometry>
         </mxCell>
       </root>
     </mxGraphModel>
