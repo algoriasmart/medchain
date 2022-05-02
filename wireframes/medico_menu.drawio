@@ -1,1 +1,49 @@
-<mxfile host="app.diagrams.net" modified="2022-05-02T11:53:24.713Z" agent="5.0 (X11)" etag="v7cyGHffNqUenlzW96yy" version="17.5.0" type="github"><diagram id="T2zNyDhyfhEta7jth-NB" name="Page-1">7VhNU9swEP01OcL4K45zJKFAp4UypYVjR7ZkW4NsubJCAr++K1l27Nhh8DSUTks4YD+tVqv3dpVVJu4y25wLVKSXHBM2cSy8mbinE8ex3akF/xTyWCGzuVsBiaDYGG2BG/pEDGjmJSuKSdkxlJwzSYsuGPE8J5HsYEgIvu6axZx1Vy1QQnrATYRYH72jWKYGtS1rO3BBaJKapYN6wxmqjQ1QpgjzdQtyP0zcpeBcVk/ZZkmYIq/mpZp3tme0CUyQXL5kwur2zhdfgy/W97W3nk+/n90GP46mlZcHxFZmwxPHZ+BvgekDPCbqsYZCsYvAah07vU/5WJNXSsHvG95sMGlIsNQSqEwJNi+I0SSH5wi2QwQAqczYdlahXGabRGXZccaj+1VxDJpLRHMiyuM1zbXfxg0jsQrpgQhJQc0TA0teKH8FimiefNY2p4FCdKRLzrhwdOyuZQVRHHeH3Goo8tQfDMUQgB6ocF9/AM8gqm9ko2WprExi2zN4ZygkbIGi+0TwVY5rBznPSUNiW1ajtNoK2bQgI/M54RmR4hFM6tE65UzNBeZ1vU3goMbSVu76dVIjUzRJ43qbV/BgUmtEmtnu3jyTKIR0aaeN/3OlamJhwj2BQV1ukKuWJqgJemAo5AITcRRxxlBRksqmeWt8d9iowdpVyyiCzRUIY8iWjqnXsaoW7fpqG3SLRoYcTsNdUAxyEDZporak8kTtB3INzaK55zTb7g7G+rPDiaGr2KiFOAO9tO08CGPnuWhTlRCmfLZmur56k06vPtbzoMbyYVlTKsmRKkGjTiHI0PJW65CpnPXOHhXbb0R7xbNQr30gf0soWcGf94dbCMrUYZSHZfH+3hZ88Humw1wD9iz31dFvlUCz9K0+v8DFs4H17Z2R9u4L7V+TsX0nD0Gxg90DHS69nXsjmZqOtPf/AmYPy9hsJAPBSPv5X8DY2+SibY2kyh57LtgvPRgOQa4Ch1oPhVdN2J42XupWtt2Qc2hGY6Yb+ZiqVnCh1Wma+QM0se6s28Q6Xr+LdecDXazzel2s1+tirwWHK0mGVN5KUsoed7rZv+YllZR3rjf1zeTzjkFGMVaTR12IQlTS6DhcSal8LPT12z6QEP50R4iB64RtDwjhvZoO/Vvrf6iD67y5Dv67DqCD/+Y6zN51UPT+QR2myV3xA80s7+IGWZcX+Cn9ZB3ZPRkuSb5SsyLY/r+nwEt+Zxrg3x3PP7xufyjVY62fm90PvwA=</diagram></mxfile>
+<mxfile host="app.diagrams.net" modified="2022-05-02T11:57:29.100Z" agent="5.0 (X11)" etag="Rm36xUL4MvuUVv1fHAxI" version="17.5.0" type="github">
+  <diagram id="T2zNyDhyfhEta7jth-NB" name="Page-1">
+    <mxGraphModel dx="1350" dy="793" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="uVW6rR8O0Uw4w95UFV8_-5" value="&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.containers.window;align=left;verticalAlign=top;spacingLeft=8;strokeColor2=#008cff;strokeColor3=#c4c4c4;fontColor=#666666;mainText=;fontSize=17;labelBackgroundColor=none;" parent="1" vertex="1">
+          <mxGeometry x="120" y="80" width="880" height="600" as="geometry" />
+        </mxCell>
+        <mxCell id="uVW6rR8O0Uw4w95UFV8_-13" value="&lt;table style=&quot;width: 100% ; height: 100% ; border-collapse: collapse&quot; width=&quot;100%&quot; cellpadding=&quot;4&quot; border=&quot;1&quot;&gt;&lt;tbody&gt;&lt;tr style=&quot;background-color: #a7c942 ; color: #ffffff ; border: 1px solid #98bf21&quot;&gt;&lt;th align=&quot;left&quot;&gt;DNI&lt;span style=&quot;white-space: pre&quot;&gt; &lt;/span&gt;&lt;/th&gt;&lt;th align=&quot;left&quot;&gt;Nombre&lt;/th&gt;&lt;th align=&quot;left&quot;&gt;Centro&lt;/th&gt;&lt;td&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style=&quot;border: 1px solid #98bf21&quot;&gt;&lt;td&gt;Value 1&lt;/td&gt;&lt;td&gt;Value 2&lt;/td&gt;&lt;td&gt;Value 3&lt;/td&gt;&lt;td&gt;&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style=&quot;background-color: #eaf2d3 ; border: 1px solid #98bf21&quot;&gt;&lt;td&gt;Value 4&lt;/td&gt;&lt;td&gt;Value 5&lt;/td&gt;&lt;td&gt;Value 6&lt;/td&gt;&lt;td&gt;&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style=&quot;border: 1px solid #98bf21&quot;&gt;&lt;td&gt;Value 7&lt;/td&gt;&lt;td&gt;Value 8&lt;/td&gt;&lt;td&gt;Value 9&lt;/td&gt;&lt;td&gt;&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style=&quot;background-color: #eaf2d3 ; border: 1px solid #98bf21&quot;&gt;&lt;td&gt;Value 10&lt;/td&gt;&lt;td&gt;Value 11&lt;/td&gt;&lt;td&gt;Value 12&lt;/td&gt;&lt;td&gt;&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;overflow=fill;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="370" y="190" width="480" height="250" as="geometry" />
+        </mxCell>
+        <mxCell id="uVW6rR8O0Uw4w95UFV8_-14" value="Programar test" style="labelPosition=center;verticalLabelPosition=middle;align=center;html=1;shape=mxgraph.basic.button;dx=10;" parent="1" vertex="1">
+          <mxGeometry x="710" y="240" width="140" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="uVW6rR8O0Uw4w95UFV8_-15" value="Programar test" style="labelPosition=center;verticalLabelPosition=middle;align=center;html=1;shape=mxgraph.basic.button;dx=10;" parent="1" vertex="1">
+          <mxGeometry x="710" y="290" width="140" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="uVW6rR8O0Uw4w95UFV8_-16" value="Programar test" style="labelPosition=center;verticalLabelPosition=middle;align=center;html=1;shape=mxgraph.basic.button;dx=10;" parent="1" vertex="1">
+          <mxGeometry x="710" y="340" width="140" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="uVW6rR8O0Uw4w95UFV8_-17" value="Programar test" style="labelPosition=center;verticalLabelPosition=middle;align=center;html=1;shape=mxgraph.basic.button;dx=10;" parent="1" vertex="1">
+          <mxGeometry x="710" y="390" width="140" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="mutLdSuEkrl59Ci2k42Q-1" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="80" width="120" height="600" as="geometry" />
+        </mxCell>
+        <mxCell id="5gWp_a704HSa0MHdzhK0-1" value="Menu icon" style="labelPosition=center;verticalLabelPosition=middle;align=center;html=1;shape=mxgraph.basic.button;dx=10;" parent="1" vertex="1">
+          <mxGeometry x="120" y="80" width="90" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="mutLdSuEkrl59Ci2k42Q-2" value="Nombre" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="120" y="170" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="mutLdSuEkrl59Ci2k42Q-3" value="Medico" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="120" y="260" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="mutLdSuEkrl59Ci2k42Q-4" value="Nombre del centro" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="120" y="350" width="110" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="mutLdSuEkrl59Ci2k42Q-6" value="Log out" style="labelPosition=center;verticalLabelPosition=middle;align=center;html=1;shape=mxgraph.basic.button;dx=10;" vertex="1" parent="1">
+          <mxGeometry x="120" y="510" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="mutLdSuEkrl59Ci2k42Q-7" value="Exit" style="labelPosition=center;verticalLabelPosition=middle;align=center;html=1;shape=mxgraph.basic.button;dx=10;" vertex="1" parent="1">
+          <mxGeometry x="120" y="620" width="100" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
