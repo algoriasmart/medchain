@@ -140,7 +140,7 @@ QFrame{
              </font>
             </property>
             <property name="text">
-             <string>Médico</string>
+             <string>Auxiliar</string>
             </property>
            </widget>
           </item>

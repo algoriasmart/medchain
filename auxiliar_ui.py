@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'medico.ui'
+# Form implementation generated from reading ui file 'auxiliar.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.6
 #
@@ -187,7 +187,7 @@ class Ui_MainWindow(object):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.nombre.setText(_translate("MainWindow", "Nombre"))
-        self.medico.setText(_translate("MainWindow", "Médico"))
+        self.medico.setText(_translate("MainWindow", "Auxiliar"))
         self.centro.setText(_translate("MainWindow", "Nombre centro"))
         self.logout.setText(_translate("MainWindow", "Log out"))
         self.exit.setText(_translate("MainWindow", "Exit"))

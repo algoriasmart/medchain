@@ -6,6 +6,7 @@ from PyQt5.QtWidgets import QApplication, QMainWindow
 
 from login import Login
 from medico import Medico
+from auxiliar import Auxiliar
 
 
 class Controlador(QMainWindow):
@@ -37,6 +38,10 @@ class Controlador(QMainWindow):
     def logged(self, username, role):
         if role == "medico":
             self.main_window = Medico(self.database, username)
+            self.main_window.logout_signal.connect(self.logout)
+            self.raise_()
+        if role == "auxiliar":
+            self.main_window = Auxiliar(self.database, username)
             self.main_window.logout_signal.connect(self.logout)
             self.raise_()
 

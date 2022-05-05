@@ -3,11 +3,11 @@ from PyQt5.QtCore import QPropertyAnimation, QEasingCurve, pyqtSignal, Qt, pyqtS
 from PyQt5.QtSql import QSqlQuery, QSqlQueryModel
 from PyQt5.QtWidgets import QMainWindow, QHeaderView, QAbstractScrollArea, QPushButton
 
-from medico_ui import Ui_MainWindow
+from auxiliar_ui import Ui_MainWindow
 from confirmar_programacion import ConfirmarProgramacion
 
 
-class Medico(QMainWindow, Ui_MainWindow):
+class Auxiliar(QMainWindow, Ui_MainWindow):
     logout_signal = pyqtSignal()
 
     def __init__(self, database, username):
@@ -75,10 +75,10 @@ class Medico(QMainWindow, Ui_MainWindow):
 
     def load_data(self):
         query = QSqlQuery()
-        query.prepare("SELECT users.identificador, users.nombre, centros.nombreFiscal FROM "
-                      "users INNER JOIN centros ON users.id_centro = centros.id INNER JOIN pacientes_asociados ON "
-                      "users.id = pacientes_asociados.id_paciente INNER JOIN users AS users2 ON "
-                      "pacientes_asociados.id_medico = users2.id WHERE users2.username = :username ")
+        query.prepare('SELECT users.identificador, users.nombre, centros.nombreFiscal FROM users INNER JOIN centros '
+                      'ON users.id_centro = centros.id INNER JOIN users AS users2 ON centros.id = users2.id_centro '
+                      'INNER JOIN roles_users ON roles_users.user_id = users.id INNER JOIN roles ON '
+                      'roles_users.role_id = roles.id WHERE users2.username = :username AND roles.name = "paciente";')
         query.bindValue(":username", self.username)
         query.exec()
         self.tabla_pacientes.setRowCount(query.size())
@@ -106,10 +106,10 @@ class Medico(QMainWindow, Ui_MainWindow):
     def load_data_view(self):
         model = QSqlQueryModel()
         query = QSqlQuery()
-        query.prepare("SELECT users.identificador AS DNI, users.nombre AS Nombre, centros.nombreFiscal AS Centro FROM "
-                      "users INNER JOIN centros ON users.id_centro = centros.id INNER JOIN pacientes_asociados ON "
-                      "users.id = pacientes_asociados.id_paciente INNER JOIN users AS users2 ON "
-                      "pacientes_asociados.id_medico = users2.id WHERE users2.username = :username ")
+        query.prepare('SELECT users.identificador, users.nombre, centros.nombreFiscal FROM users INNER JOIN centros '
+                      'ON users.id_centro = centros.id INNER JOIN users AS users2 ON centros.id = users2.id_centro '
+                      'INNER JOIN roles_users ON roles_users.user_id = users.id INNER JOIN roles ON '
+                      'roles_users.role_id = roles.id WHERE users2.username = :username AND roles.name = "paciente";')
         query.bindValue(":username", self.username)
         query.exec_()
         model.setQuery(query)
