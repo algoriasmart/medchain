@@ -44,6 +44,9 @@ QPushButton{
 	background-color: rgb(31,189,200);
 	border-radius: 25px;
 	color: rgb(189, 208, 211);
+}
+QPushButton:pressed{
+	border-radius: 25px;
 }</string>
     </property>
     <property name="frameShape">
