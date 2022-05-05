@@ -196,5 +196,5 @@ class Ui_MainWindow(object):
         item = self.tabla_pacientes.horizontalHeaderItem(1)
         item.setText(_translate("MainWindow", "Nombre"))
         item = self.tabla_pacientes.horizontalHeaderItem(2)
-        item.setText(_translate("MainWindow", "New Column"))
+        item.setText(_translate("MainWindow", "Centro"))
 import resources_rc
