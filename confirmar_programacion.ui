@@ -78,7 +78,7 @@ QFrame{
          </size>
         </property>
         <property name="styleSheet">
-         <string notr="true">boder: none;</string>
+         <string notr="true">border: none;</string>
         </property>
         <property name="frameShape">
          <enum>QFrame::StyledPanel</enum>

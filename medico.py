@@ -4,12 +4,11 @@ from PyQt5.QtSql import QSqlQuery, QSqlQueryModel
 from PyQt5.QtWidgets import QMainWindow, QHeaderView, QAbstractScrollArea, QPushButton
 
 from medico_ui import Ui_MainWindow
-from confirmar_programacion_ui import Ui_Dialog
+from confirmar_programacion import ConfirmarProgramacion
 
 
 class Medico(QMainWindow, Ui_MainWindow):
     logout_signal = pyqtSignal()
-    programar_signal = pyqtSignal(str, str)
 
     def __init__(self, database, username):
         super().__init__()
@@ -123,5 +122,11 @@ class Medico(QMainWindow, Ui_MainWindow):
         self.tabla_pacientes.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
 
     def confirmar_programacion(self, dni, nombre):
+        dialog = ConfirmarProgramacion()
+        dialog.setModal(True)
+        dialog.set_name_dni(nombre, dni)
+        dialog.accepted.connect(lambda: self.programar_test(dni))
+        dialog.exec_()
+
+    def programar_test(self, dni):
         print(dni)
-        print(nombre)
