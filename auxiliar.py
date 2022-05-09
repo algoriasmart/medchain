@@ -103,24 +103,6 @@ class Auxiliar(QMainWindow, Ui_MainWindow):
         #self.tabla_pacientes.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
         self.tabla_pacientes.horizontalHeader().setSectionResizeMode(QHeaderView.Fixed)
 
-    def load_data_view(self):
-        model = QSqlQueryModel()
-        query = QSqlQuery()
-        query.prepare('SELECT users.identificador, users.nombre, centros.nombreFiscal FROM users INNER JOIN centros '
-                      'ON users.id_centro = centros.id INNER JOIN users AS users2 ON centros.id = users2.id_centro '
-                      'INNER JOIN roles_users ON roles_users.user_id = users.id INNER JOIN roles ON '
-                      'roles_users.role_id = roles.id WHERE users2.username = :username AND roles.name = "paciente";')
-        query.bindValue(":username", self.username)
-        query.exec_()
-        model.setQuery(query)
-        self.tabla_pacientes.setModel(model)
-        ver_detalles = QPushButton()
-        self.tabla_pacientes.setIndexWidget(model.index(0, 2), ver_detalles)
-        self.tabla_pacientes.verticalHeader().setVisible(False)
-        self.tabla_pacientes.setSizeAdjustPolicy(QAbstractScrollArea.AdjustToContents)
-        self.tabla_pacientes.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
-        self.tabla_pacientes.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
-
     def confirmar_programacion(self, dni, nombre):
         dialog = ConfirmarProgramacion()
         dialog.setModal(True)

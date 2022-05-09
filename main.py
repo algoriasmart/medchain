@@ -8,7 +8,8 @@ from login import Login
 from medico import Medico
 from auxiliar import Auxiliar
 
-
+REMOTE = False
+LOCAL = True
 class Controlador(QMainWindow):
     def __init__(self):
         super().__init__()
@@ -18,10 +19,16 @@ class Controlador(QMainWindow):
         self.login.show()
 
     def connect(self):
-        server = 'remotemysql.com'
-        database_name = 'zAKPC936JP'
-        user_name = 'zAKPC936JP'
-        password = 'UloEGPhfyS'
+        if REMOTE:
+            server = 'remotemysql.com'
+            database_name = 'zAKPC936JP'
+            user_name = 'zAKPC936JP'
+            password = 'UloEGPhfyS'
+        elif LOCAL:
+            server = 'localhost'
+            database_name = 'webapp'
+            user_name = 'root'
+            password = '1234'
 
         self.database = QSqlDatabase.addDatabase("QMYSQL")
         self.database.setHostName(server)
