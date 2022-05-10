@@ -80,6 +80,7 @@ class Login(QMainWindow, Ui_MainWindow):
                         if query.next():
                             role = query.value(0)
                             if role != "paciente":
+                                self.info.setText("")
                                 self.login_info.emit(username, role)
                                 self.hide()
                             else:

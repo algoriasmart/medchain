@@ -251,7 +251,7 @@ QFrame{
                 <string/>
                </property>
                <property name="icon">
-                <iconset>
+                <iconset resource="resources.qrc">
                  <normaloff>:/actions/tango-icon-theme-0.8.90/32x32/actions/go-previous.png</normaloff>:/actions/tango-icon-theme-0.8.90/32x32/actions/go-previous.png</iconset>
                </property>
                <property name="iconSize">
@@ -320,6 +320,11 @@ QHeaderView::section
                <column>
                 <property name="text">
                  <string>Centro</string>
+                </property>
+               </column>
+               <column>
+                <property name="text">
+                 <string/>
                 </property>
                </column>
                <column>

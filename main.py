@@ -2,26 +2,35 @@ import sys
 
 from PyQt5.QtCore import pyqtSlot
 from PyQt5.QtSql import QSqlDatabase
-from PyQt5.QtWidgets import QApplication, QMainWindow
+from PyQt5.QtWidgets import QApplication, QMainWindow, QDesktopWidget
 
 from login import Login
 from medico import Medico
 from auxiliar import Auxiliar
+from utils import center, center_relative
 
-
+REMOTE = False
+LOCAL = True
 class Controlador(QMainWindow):
     def __init__(self):
         super().__init__()
         self.connect()
         self.login = Login(self.database)
         self.login.login_info.connect(self.logged)
+        center(self.login)
         self.login.show()
 
     def connect(self):
-        server = 'remotemysql.com'
-        database_name = 'zAKPC936JP'
-        user_name = 'zAKPC936JP'
-        password = 'UloEGPhfyS'
+        if REMOTE:
+            server = 'remotemysql.com'
+            database_name = 'zAKPC936JP'
+            user_name = 'zAKPC936JP'
+            password = 'UloEGPhfyS'
+        elif LOCAL:
+            server = 'localhost'
+            database_name = 'webapp'
+            user_name = 'root'
+            password = '1234'
 
         self.database = QSqlDatabase.addDatabase("QMYSQL")
         self.database.setHostName(server)
@@ -39,14 +48,17 @@ class Controlador(QMainWindow):
         if role == "medico":
             self.main_window = Medico(self.database, username)
             self.main_window.logout_signal.connect(self.logout)
+            center_relative(self.login, self.main_window)
             self.raise_()
         if role == "auxiliar":
             self.main_window = Auxiliar(self.database, username)
             self.main_window.logout_signal.connect(self.logout)
+            center_relative(self.login, self.main_window)
             self.raise_()
 
     @pyqtSlot()
     def logout(self):
+        center_relative(self.main_window, self.login)
         self.main_window.close()
         self.main_window = None
         self.login.username.setText("")
