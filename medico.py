@@ -1,12 +1,15 @@
 from PyQt5 import QtWidgets, QtGui
-from PyQt5.QtCore import QPropertyAnimation, QEasingCurve, pyqtSignal, Qt, pyqtSlot
-from PyQt5.QtSql import QSqlQuery, QSqlQueryModel
-from PyQt5.QtWidgets import QMainWindow, QHeaderView, QAbstractScrollArea, QPushButton, QFileDialog
+from PyQt5.QtCore import QPropertyAnimation, QEasingCurve, pyqtSignal, Qt
+from PyQt5.QtSql import QSqlQuery
+from PyQt5.QtWidgets import QMainWindow, QHeaderView, QAbstractScrollArea, QPushButton, QFileDialog, QMessageBox
 
 from medico_ui import Ui_MainWindow
 from confirmar_programacion import ConfirmarProgramacion
+from mensage import Mensage
 
 from pandas import read_csv
+
+from utils import center_relative
 
 
 class Medico(QMainWindow, Ui_MainWindow):
@@ -116,6 +119,7 @@ class Medico(QMainWindow, Ui_MainWindow):
         dialog.setModal(True)
         dialog.set_name_dni(nombre, dni)
         dialog.accepted.connect(lambda: self.programar_test(dni))
+        center_relative(self, dialog)
         dialog.exec_()
 
     def programar_test(self, dni):
@@ -138,7 +142,6 @@ class Medico(QMainWindow, Ui_MainWindow):
                     next_num = query.value(0) + 1
                 else:
                     next_num = 0
-                print(next_num)
                 df["num_test"] = next_num
                 if not df["item"].is_unique:
                     items = range(len(df.index))
@@ -151,7 +154,6 @@ class Medico(QMainWindow, Ui_MainWindow):
             query.bindValue(":id", int(df.at[0, "id_paciente"]))
             query.exec_()
             if query.next():
-                print("next")
                 id_centro = query.value(0)
                 query = QSqlQuery()
                 query.prepare("INSERT INTO test (num_test, id_paciente, date, id_centro)"
@@ -160,8 +162,8 @@ class Medico(QMainWindow, Ui_MainWindow):
                 query.bindValue(":id_paciente", int(df.at[0, "id_paciente"]))
                 query.bindValue(":date", df.at[0, "date"])
                 query.bindValue(":id_centro", int(id_centro))
-                query.exec_()
-                print(query.lastError().text())
+                if not query.exec_():
+                    return False
 
                 for index, row in df.iterrows():
                     query = QSqlQuery()
@@ -182,11 +184,11 @@ class Medico(QMainWindow, Ui_MainWindow):
                     query.bindValue(":mag_x", row.at["mag_x"])
                     query.bindValue(":mag_y", row.at["mag_y"])
                     query.bindValue(":mag_z", row.at["mag_z"])
-                    query.exec_()
-                    print(index)
-                    print(query.lastError().text())
-
-                self.database.commit()
+                    if not query.exec_():
+                        return False
+                return True
+            else:
+                return False
 
         dlg = QFileDialog()
         dlg.setFileMode(QFileDialog.AnyFile)
@@ -195,6 +197,21 @@ class Medico(QMainWindow, Ui_MainWindow):
             filenames = dlg.selectedFiles()
             colnames = ["item", "date", "time", "acc_x", "acc_y", "acc_z", "gyr_x", "gyr_y", "gyr_z", "mag_x", "mag_y", "mag_z"]
             df = read_csv(filenames[0], delim_whitespace=True, skiprows=6, usecols=range(0, 12), names=colnames)
-            df = add_columns(df, dni)
-            df = df.drop_duplicates(subset=["time"])
-            insert_df(df)
+            if df.isnull().values.any():
+                mensage = Mensage()
+                mensage.set_text("Dataframe incompleto")
+                center_relative(self, mensage)
+                mensage.show()
+            else:
+                df = add_columns(df, dni)
+                df = df.drop_duplicates(subset=["time"])
+                if insert_df(df):
+                    mensage = Mensage()
+                    mensage.set_text("Se han insertado los datos correctamente")
+                    center_relative(self, mensage)
+                    mensage.show()
+                else:
+                    mensage = Mensage()
+                    mensage.set_text("Ha habido un error al insertar los datos")
+                    center_relative(self, mensage)
+                    mensage.show()

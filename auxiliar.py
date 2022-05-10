@@ -5,6 +5,7 @@ from PyQt5.QtWidgets import QMainWindow, QHeaderView, QAbstractScrollArea, QPush
 
 from auxiliar_ui import Ui_MainWindow
 from confirmar_programacion import ConfirmarProgramacion
+from utils import center_relative
 
 
 class Auxiliar(QMainWindow, Ui_MainWindow):
@@ -108,6 +109,7 @@ class Auxiliar(QMainWindow, Ui_MainWindow):
         dialog.setModal(True)
         dialog.set_name_dni(nombre, dni)
         dialog.accepted.connect(lambda: self.programar_test(dni))
+        center_relative(self, dialog)
         dialog.exec_()
 
     def programar_test(self, dni):
