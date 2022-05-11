@@ -164,7 +164,7 @@ class Ui_MainWindow(object):
 "    font-size: 16px;\n"
 "}")
         self.tabla_pacientes.setObjectName("tabla_pacientes")
-        self.tabla_pacientes.setColumnCount(5)
+        self.tabla_pacientes.setColumnCount(6)
         self.tabla_pacientes.setRowCount(0)
         item = QtWidgets.QTableWidgetItem()
         self.tabla_pacientes.setHorizontalHeaderItem(0, item)
@@ -176,6 +176,8 @@ class Ui_MainWindow(object):
         self.tabla_pacientes.setHorizontalHeaderItem(3, item)
         item = QtWidgets.QTableWidgetItem()
         self.tabla_pacientes.setHorizontalHeaderItem(4, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tabla_pacientes.setHorizontalHeaderItem(5, item)
         self.verticalLayout_2.addWidget(self.tabla_pacientes, 0, QtCore.Qt.AlignHCenter|QtCore.Qt.AlignVCenter)
         self.verticalLayout.addWidget(self.frame_2)
         self.horizontalLayout_3.addWidget(self.main_content)

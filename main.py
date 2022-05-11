@@ -9,8 +9,8 @@ from medico import Medico
 from auxiliar import Auxiliar
 from utils import center, center_relative
 
-REMOTE = False
-LOCAL = True
+REMOTE = True
+LOCAL = False
 class Controlador(QMainWindow):
     def __init__(self):
         super().__init__()
