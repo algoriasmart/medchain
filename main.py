@@ -9,8 +9,11 @@ from medico import Medico
 from auxiliar import Auxiliar
 from utils import center, center_relative
 
-REMOTE = True
-LOCAL = False
+REMOTE = 1
+LOCAL = 2
+DB = REMOTE
+
+
 class Controlador(QMainWindow):
     def __init__(self):
         super().__init__()
@@ -21,12 +24,12 @@ class Controlador(QMainWindow):
         self.login.show()
 
     def connect(self):
-        if REMOTE:
+        if DB == REMOTE:
             server = 'remotemysql.com'
             database_name = 'zAKPC936JP'
             user_name = 'zAKPC936JP'
             password = 'UloEGPhfyS'
-        elif LOCAL:
+        elif DB == LOCAL:
             server = 'localhost'
             database_name = 'webapp'
             user_name = 'root'
