@@ -9,7 +9,7 @@ from mensage import Mensage
 
 from pandas import read_csv
 
-from plots import PlotsPyQtChart, PlotsPyQtGraph
+from chose_plot import ChosePlot
 from utils import center_relative
 
 
@@ -229,47 +229,6 @@ class Medico(QMainWindow, Ui_MainWindow):
                     mensage.show()
 
     def plot(self, dni):
-        query = QSqlQuery()
-        query.prepare("SELECT test.num_test FROM test INNER JOIN users ON users.id = test.id_paciente WHERE "
-                      "users.identificador = :dni ORDER BY test.num_test DESC LIMIT 1")
-        query.bindValue(":dni", dni)
-        query.exec_()
-        if query.next():
-            num_test = query.value(0)
-            query = QSqlQuery()
-            query.prepare("SELECT item, acc_x, acc_y, acc_z, gyr_x, gyr_y, gyr_z, mag_x, mag_y, mag_z FROM test_unit "
-                          "INNER JOIN users ON users.id = test_unit.id_paciente WHERE test_unit.num_test = :num_test "
-                          "AND users.identificador = :dni")
-            query.bindValue(":num_test", int(num_test))
-            query.bindValue(":dni", dni)
-            query.exec_()
-
-            item = []
-            acc_x = []
-            acc_y = []
-            acc_z = []
-            gyr_x = []
-            gyr_y = []
-            gyr_z = []
-            mag_x = []
-            mag_y = []
-            mag_z = []
-
-            while query.next():
-                item.append(query.value(0))
-                acc_x.append(query.value(1))
-                acc_y.append(query.value(2))
-                acc_z.append(query.value(3))
-                gyr_x.append(query.value(4))
-                gyr_y.append(query.value(5))
-                gyr_z.append(query.value(6))
-                mag_x.append(query.value(7))
-                mag_y.append(query.value(8))
-                mag_z.append(query.value(9))
-
-            print(item)
-            self.plots = PlotsPyQtGraph()
-            self.plots.set_data_top(item, acc_x, acc_y, acc_z, "Aceleración")
-            self.plots.set_data_mid(item, gyr_x, gyr_y, gyr_z, "Giroscopio")
-            self.plots.set_data_bot(item, mag_x, mag_y, mag_z, "Magnetometro")
-            self.plots.show()
+        self.chose_plot = ChosePlot(dni)
+        center_relative(self, self.chose_plot)
+        self.chose_plot.show()
