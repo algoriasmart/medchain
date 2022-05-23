@@ -11,18 +11,20 @@ from pandas import read_csv
 
 from chose_plot import ChosePlot
 from utils import center_relative
+from security import check_cookie
 
 
 class Medico(QMainWindow, Ui_MainWindow):
     logout_signal = pyqtSignal()
 
-    def __init__(self, database, username):
+    def __init__(self, database, username, password):
         super().__init__()
         self.setupUi(self)
         self.setWindowFlags(Qt.FramelessWindowHint)
         self.setAttribute(Qt.WA_TranslucentBackground)
         self.database = database
         self.username = username
+        self.password = password
         self.set_name()
         self.set_center_name()
         self.load_data()
@@ -79,6 +81,7 @@ class Medico(QMainWindow, Ui_MainWindow):
         self.animation.setEasingCurve(QEasingCurve.InOutQuart)
         self.animation.start()
 
+    @check_cookie()
     def load_data(self):
         query = QSqlQuery()
         query.prepare("SELECT users.identificador, users.nombre, centros.nombreFiscal FROM "
@@ -126,6 +129,7 @@ class Medico(QMainWindow, Ui_MainWindow):
         #self.tabla_pacientes.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
         self.tabla_pacientes.horizontalHeader().setSectionResizeMode(QHeaderView.Fixed)
 
+    @check_cookie()
     def confirmar_programacion(self, dni, nombre):
         dialog = ConfirmarProgramacion()
         dialog.setModal(True)
@@ -137,6 +141,7 @@ class Medico(QMainWindow, Ui_MainWindow):
     def programar_test(self, dni):
         print(dni)
 
+    @check_cookie()
     def guardar_csv(self, dni):
         def add_columns(df, dni):
             query = QSqlQuery()

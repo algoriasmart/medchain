@@ -1,7 +1,7 @@
 from PyQt5.QtChart import QChart, QSplineSeries, QChartView, QValueAxis
 from PyQt5.QtCore import Qt
 from PyQt5.QtDataVisualization import Q3DScatter, QScatterDataProxy, QScatter3DSeries, QScatterDataItem, Q3DTheme, \
-    QAbstract3DGraph, Q3DCamera, Sca
+    QAbstract3DGraph, Q3DCamera
 from PyQt5.QtGui import QPainter, QVector3D
 from PyQt5.QtWidgets import QMainWindow, QHBoxLayout, QWidget
 

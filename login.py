@@ -1,41 +1,15 @@
-import bcrypt
 from PyQt5 import QtCore
 from PyQt5.QtCore import pyqtSignal, pyqtSlot, Qt
 from PyQt5.QtWidgets import QMainWindow, QLabel
 from PyQt5.QtSql import QSqlQuery
 
-import hmac
-import hashlib
-import base64
-
 from login_ui import Ui_MainWindow
 
-
-class MainWindow(QMainWindow):
-    def __init__(self):
-        super().__init__()
-
-    @pyqtSlot(str)
-    def set_role(self, role):
-        self.show()
-        self.role = QLabel(role)
-        self.setCentralWidget(self.role)
-        self.raise_()
-
-
-def encode_string(string):
-    return string.encode('utf-8')
-
-
-def check_password(password, hash_password):
-    salt = "146585145368132386173505678016728509634"
-    h = hmac.new(encode_string(salt), encode_string(password), hashlib.sha512)
-    h = base64.b64encode(h.digest())
-    return bcrypt.checkpw(h, encode_string(hash_password))
+from security import check_password
 
 
 class Login(QMainWindow, Ui_MainWindow):
-    login_info = pyqtSignal(str, str)
+    login_info = pyqtSignal(str, str, str)
 
     def __init__(self, database):
         super().__init__()
@@ -81,7 +55,7 @@ class Login(QMainWindow, Ui_MainWindow):
                             role = query.value(0)
                             if role != "paciente":
                                 self.info.setText("")
-                                self.login_info.emit(username, role)
+                                self.login_info.emit(username, password, role)
                                 self.hide()
                             else:
                                 self.info.setText("No tienes permiso para acceder")
