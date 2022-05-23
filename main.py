@@ -2,7 +2,7 @@ import sys
 
 from PyQt5.QtCore import pyqtSlot
 from PyQt5.QtSql import QSqlDatabase
-from PyQt5.QtWidgets import QApplication, QMainWindow, QDesktopWidget
+from PyQt5.QtWidgets import QApplication, QMainWindow
 
 from login import Login
 from medico import Medico
@@ -46,15 +46,15 @@ class Controlador(QMainWindow):
         else:
             print(self.database.lastError().text())
 
-    @pyqtSlot(str, str)
-    def logged(self, username, role):
+    @pyqtSlot(str, str, str)
+    def logged(self, username, password, role):
         if role == "medico":
-            self.main_window = Medico(self.database, username)
+            self.main_window = Medico(self.database, username, password)
             self.main_window.logout_signal.connect(self.logout)
             center_relative(self.login, self.main_window)
             self.raise_()
         if role == "auxiliar":
-            self.main_window = Auxiliar(self.database, username)
+            self.main_window = Auxiliar(self.database, username, password)
             self.main_window.logout_signal.connect(self.logout)
             center_relative(self.login, self.main_window)
             self.raise_()
