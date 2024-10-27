@@ -16,9 +16,10 @@ Before running the application, make sure you have the following installed:
 
 - Python 3.9 or higher: [Download Python](https://www.python.org/downloads/)
 - PyQt5: For the graphical user interface.
-- Required libraries: Listed in `requirements.txt`.
+
 
 To install all dependencies, run:
 
 ```bash
-pip install -r requirements.txt
+python main.py
+```
